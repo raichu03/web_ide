@@ -1,0 +1,13 @@
+
+
+### ignore all files in .vscode/ ###
+.vscode
+
+### Visual Studio temporary files ###
+html/__pycache__
+
+html/app/__pycache__
+
+html/venv/
+
+html/test.py

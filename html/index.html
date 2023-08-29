@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title> this is test </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="header"> coading competation </div>
+
+    <div class ="control-pannel">
+        Select Language:
+        &nbsp; &nbsp;
+        <select id="languages" class="languages" onchange="changeLanguage(this.value)">
+            <option>choose a language</option>
+            <option value="c">C</option>
+            <option value="cpp">C++</option>
+            <option value="py">Python</option>
+            <option value="php">PHP</option>
+            <option value="js">Javascript</option>
+        </select>
+    </div>
+
+    <div class="editor-container">
+        <div id="editor"></div>
+    </div>
+
+    <div class="button-container">
+        <button class="btn" onclick="executeCode()">Run</button>
+    </div>
+
+    <div class="output"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.5.3/ace.js"></script>
+    <script src="main.js"></script>
+
+</body>
