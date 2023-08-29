@@ -1,20 +1,35 @@
+
 .editor-container {
-  width: 100%;
+  flex: 5;
+  width: 50%;
   height: 540px;
   margin: 20pxauto;
-  position: relative;
+  position: fixed;
+  right: 0%;
 }
+.question-container{
+  flex: 5;
+  width: 40%;
+  height: 540px;
+  margin: 20pxauto;
+  position: fixed;
+  left: 0%;
 
+}
 #editor {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
   height: 100%;
   width: 100%;
   font-size: 20px;
+  position: relative;
 }
+
+#question {
+  height: 100%;
+  width: 100%;
+  font-size: 20px;
+  position: relative;
+}
+
 
 .header {
   text-align: center;
