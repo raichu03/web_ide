@@ -17,20 +17,50 @@ function changeLanguage(language) {
   else if (language == 'js') editor.session.setMode("ace/mode/javascript");
 };
 
-function executeCode() {
 
+function changeDifficulty(){
+  const difficultyMode = document.getElementById('modeSelect');
+  let hasSelected = false;
+  const mode = difficultyMode.value;
+  var myData = {
+    difficulty: mode
+  }
+
+  if (!hasSelected) {
+    hasSelected = true;
+    difficultyMode.disabled = true;
+  };
+
+
+  $.ajax({
+    url: "http://127.0.0.1:8000/question",
+    type: "POST",
+    contentType: "application/json",
+    data: JSON.stringify(myData),
+    success: function (data) {
+      var formattedData = "Q. " + data.id +": &emsp;"+ data.title + "<br><br><br>&emsp;" + data.description + "<br><br><br>&emsp;" + data.example;
+      console.log(formattedData);
+      $(".questions").html(formattedData);
+    }
+  });
+
+
+};
+
+
+function executeCode() {
   var jsonData = {
     language: language_data,
     code: editor.getSession().getValue()
   };
 
   $.ajax({
-    url: "http://127.0.0.1:8000/test",
+    url: "http://127.0.0.1:8000/compile",
     type: "POST",
     contentType: "application/json",
     data: JSON.stringify(jsonData),
     success: function (data) {
-      var formatteddata = data.replace(/\n/g,"<br >");
+      var formatteddata = data.replace(/\n/g,"<br>");
       $(".output").html(formatteddata);
     }
   });

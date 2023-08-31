@@ -1,15 +1,22 @@
 <!DOCTYPE html>
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Coding Competition</title>
     <link rel="stylesheet" href="style/second.css">
+</head>
 <body>
-<header>
     <!-- FOR LANGUAGE SELECTION BAR -->
     <nav>
         <div class="logo"> <h1 style="font-size: 20px;"> WELCOME TO THE CODING COMPETATION </h1> </div>
+        <div class="mode">
+            <select id="modeSelect" class="modeSelect" onchange="changeDifficulty()">
+                <option value="">Select a difficulty</option>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+              </select>
+        </div>
         <div class="menu">
             <select id="languages" class="languages" onchange="changeLanguage(this.value)">
                 <option value="">Choose a language</option>
@@ -32,13 +39,12 @@
             <div class="container">
                 <br>
                 <div class="question-container">
-                    <br>
-                    <div id="questions">here lies questions</div>
+                    <div id="questions" class="questions"><br><br>here lies questions</div>
+                    <div contenteditable="false" class="output">OUTPUT</div>
+
                 </div>
                 <div class="editor-container"> 
-                    <br>
                     <div id="editor"></div>
-                    <div contenteditable="false" class="output">OUTPUT</div>
                     </div>
                 </div>
                 
@@ -50,6 +56,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.5.3/ace.js"></script>
     <script src="main.js"></script>
 
-
-</header>
 </body>
+<html>

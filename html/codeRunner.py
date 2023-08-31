@@ -16,7 +16,7 @@ class Run:
     def codeGenerator(self, language, code):
         now = datetime.now()
         current_date = now.strftime("%d")
-        current_time = now.strftime("%H:%M:%S")
+        current_time = now.strftime("%H_%M_%S")
         file_name = path + current_date + "_" + current_time+ "ar" +"."+ language
 
         with open(file_name, "w") as file:
@@ -45,7 +45,9 @@ class Run:
         elif (language=="c"):
             try:
                 subprocess.check_output(["gcc", file_path, "-o", path +"executable"])
+                os.remove(file_path)
                 output = subprocess.check_output([path + "./executable"], stderr=subprocess.STDOUT, text=True)
+                os.remove(path + "executable")
                 return output
             
             except subprocess.CalledProcessError as e:
@@ -55,8 +57,8 @@ class Run:
         elif (language=="cpp"):
             try:
                 subprocess.check_output(["g++", file_path, "-o", path + "executable"])
-                output = subprocess.check_output([path + "./executable"], stderr=subprocess.STDOUT, text=True)
                 os.remove(file_path)
+                output = subprocess.check_output([path + "./executable"], stderr=subprocess.STDOUT, text=True)
                 os.remove(path + "executable")
                 return output
             

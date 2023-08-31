@@ -28,7 +28,13 @@ nav .logo {
 }
 
 nav .menu {
-  width: 100%;
+  width: 60%;
+  display: flex;
+  justify-content: space-around;
+}
+
+nav .mode {
+  width: 60%;
   display: flex;
   justify-content: space-around;
 }
@@ -36,17 +42,14 @@ nav .menu {
 main {
   width: 99%;
   height: 84.1vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: white;
+  color: black;
 }
+
 
 .container {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 99%;
   height: 87vh;
   width: 100lvw;
   margin-bottom: 8px;
@@ -62,38 +65,41 @@ main {
 }
 
 #editor {
-  height: 80%;
-  width: 100%;
+  height: 100%;
+  width: 99%;
   font-size: 20px;
   position: relative;
   border: 1px solid black;
 }
 
 .question-container {
-  flex: 3;
+  flex: 4;
   order: 1;
   opacity: 0.8;
 }
 
 #questions {
   color: white;
-  height: 100%;
+  height: 70%;
   width: 100%;
   font-size: 23px;
   background-color: black;
   border: 1px solid black;
-  text-align:1%;
+  text-align:start;
 }
 
 .output {
   color: white;
-  height: 20%;
+  width: 100%;
+  height: 30%;
   bottom: 0%;
   background-color: black;
   font-size: 23px;
   opacity: 0.8;
   text-align: start;
   position: relative;
+  border: 1px solid black;
+
 }
 
 .container h1 {
@@ -116,12 +122,39 @@ main {
   /* Adjust width as needed */
 }
 
+.modeSelect {
+  font-size: 18px;
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  width: 200px;
+  /* Adjust width as needed */
+}
+
+
+
 /* Optional: Style the dropdown arrow */
 .languages::-ms-expand {
   display: none;
 }
 
+.modeSelect::-ms-expand {
+  display: none;
+}
+
 .languages::after {
+  content: '\25BC';
+  /* Unicode arrow-down symbol */
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+.modeSelect::after {
   content: '\25BC';
   /* Unicode arrow-down symbol */
   position: absolute;
