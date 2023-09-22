@@ -1,5 +1,5 @@
-
 let editor;
+let hasSelected = false; // Initialize hasSelected here
 
 window.onload = function () {
   editor = ace.edit("editor");
@@ -17,11 +17,26 @@ function changeLanguage(language) {
   else if (language == 'js') editor.session.setMode("ace/mode/javascript");
 };
 
-
 function changeDifficulty(){
+  
+  startTimer()
   const difficultyMode = document.getElementById('modeSelect');
-  let hasSelected = false;
+  
   const mode = difficultyMode.value;
+  console.log(mode)
+  switch(mode){
+    case "easy":
+      startTimer(120)
+      break;
+    case "medium":
+      startTimer(300)
+      break;
+    case "hard":
+      startTimer(600)
+      break;
+  }
+    
+
   var myData = {
     difficulty: mode
   }
@@ -29,8 +44,9 @@ function changeDifficulty(){
   if (!hasSelected) {
     hasSelected = true;
     difficultyMode.disabled = true;
-  };
+    
 
+  };
 
   $.ajax({
     url: "http://127.0.0.1:8000/question",
@@ -43,10 +59,7 @@ function changeDifficulty(){
       $(".questions").html(formattedData);
     }
   });
-
-
 };
-
 
 function executeCode() {
   var jsonData = {
@@ -65,3 +78,26 @@ function executeCode() {
     }
   });
 };
+
+var timerInterval;
+var timerSeconds;
+
+function startTimer(durationInSeconds) {
+  clearInterval(timerInterval); 
+  
+  timerSeconds = durationInSeconds;
+  
+  timerInterval = setInterval(function () {
+    timerSeconds--;
+    if (timerSeconds < 0) {
+      clearInterval(timerInterval);
+      document.getElementById('timerDisplay').textContent = 'Timer: 0 seconds';
+      
+      window.location.href = 'index.html';
+    } else {
+      document.getElementById('timerDisplay').textContent =  timerSeconds ;
+    }
+  }, 1000); // Update every 1000 milliseconds (1 second)
+}
+
+
