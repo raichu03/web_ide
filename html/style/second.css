@@ -182,3 +182,16 @@ main {
   border: 0;
   border-radius: 10px;
 }
+
+#timerDisplay {
+  border: 3px solid #f59292;
+  margin-right: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  color: rgb(19, 19, 22);
+  font-size: 20;
+  font-weight: bold;
+  background-color: rgb(248, 226, 197);
+  min-width: 50px;
+  text-align: center;
+}
