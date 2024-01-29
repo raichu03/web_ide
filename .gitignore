@@ -1,16 +1,5 @@
-
-
-### ignore all files in .vscode/ ###
-.vscode
-
-### Visual Studio temporary files ###
-html/__pycache__
-
-
-html/venv/
-
-justQuestions/
-
-### ayush ko code ###
-
-ayush
+backend-code/venv
+backend-code/__pycache__
+backend-code/output
+backend-code/test.c
+backend-code/test.py
