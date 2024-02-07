@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<head>
+
+    <link rel="stylesheet" href="../css/ide.css">
+
+</head>
+
+<body>
+
+    <div class="body-header">
+        <button class="run-btn" onclick="executeCode()">Run</button>
+    </div>
+    
+    <div class="body-footer">
+
+        <div class="question-box">
+
+            <div class="questions" id="questions">
+                <div class="question-title" id="question-title"></div>
+                <div class="question-discription" id="question-discription"></div>
+                <div class="example" id="example-2"></div>
+                <div class="example" id="example-2"></div>
+            </div>
+
+            <div class="outputs" id="outputs">
+                <div class="display-output" id="display-output"></div>
+            </div>
+
+        </div>
+
+        <div class="code-editor">
+            <div id="editor"></div>
+        </div>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../js/ace-src/ace.js"></script>
+    <script src="../js/ide.js"></script>
+
+
+
+</body>
+
+</html>

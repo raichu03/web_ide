@@ -84,16 +84,16 @@ def runCpp(filePath):
     
 def runPy(filePath):
     command = None
-    if os.name == "posix":
-        command = f"python3 {filePath}"
+    if os.name == "nt":
+        command = ["python", filePath]
     else:
-        command = f"python {filePath}"
+        command = ["python3", filePath]
 
     if command == None:
-        return None
+        return "OS not supported. Please run the program on Windows or Linux."
     else:
         try:
-            output = subprocess.check_output([command], stderr=subprocess.STDOUT, text=True)
+            output = subprocess.check_output(command, stderr=subprocess.STDOUT, text=True)
             return output
         except subprocess.CalledProcessError as e:
             return e.stderr
