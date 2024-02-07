@@ -1,6 +1,8 @@
 from datetime import datetime
 import subprocess
 import os
+import python_compile
+import javascript_compile
 
 def filePathGen(fileName):
     """generates and returns filepath according to os to store code"""
@@ -83,28 +85,12 @@ def runCpp(filePath):
         return e.stderr
     
 def runPy(filePath):
-    command = None
-    if os.name == "nt":
-        command = ["python", filePath]
-    else:
-        command = ["python3", filePath]
-
-    if command == None:
-        return "OS not supported. Please run the program on Windows or Linux."
-    else:
-        try:
-            output = subprocess.check_output(command, stderr=subprocess.STDOUT, text=True)
-            return output
-        except subprocess.CalledProcessError as e:
-            return e.stderr
+    result = python_compile.execute(filePath)
+    return result
 
 def runJs(filePath):
-    command = f"node {filePath}"
-    try:
-        output = subprocess.check_output([command], stderr=subprocess.STDOUT, text=True)
-        return output
-    except subprocess.CalledProcessError as e:
-        return e.stderr
+    result = javascript_compile.execute(filePath)
+    return result
 
 
 def codeRun(language, code):
