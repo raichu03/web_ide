@@ -3,6 +3,8 @@ import subprocess
 import os
 import python_compile
 import javascript_compile
+import c_compile
+import cpp_compiler
 
 def filePathGen(fileName):
     """generates and returns filepath according to os to store code"""
@@ -41,48 +43,12 @@ def codeGenerator(language, code):
 
 
 def runC(filePath):
-    name = datetime.now().strftime("%d_%H_%M_%S")
-    outputFile = os.join("temp", name)
-    command = f"gcc {filePath} -o {outputFile}"
-
-    try: 
-        result = subprocess.run(command, shell=True, check=True, stderr=subprocess.PIPE, text=True)
-    
-    except subprocess.CalledProcessError as e:
-        return e.stderr
-    
-    if result.returncode != 0:
-        return result.stderr
-    
-    runCommand = f"{outputFile}"
-    try:
-        output = subprocess.check_output([runCommand], stderr=subprocess.STDOUT, text=True)
-        return output
-    
-    except subprocess.CalledProcessError as e:
-        return e.stderr
+    result = c_compile.execute(filePath)
+    return result
 
 def runCpp(filePath):
-    name = datetime.now().strftime("%d_%H_%M_%S")
-    outputFile = os.join("temp", name)
-    command = f"g++ {filePath} -o {outputFile}"
-
-    try: 
-        result = subprocess.run(command, shell=True, check=True, stderr=subprocess.PIPE, text=True)
-    
-    except subprocess.CalledProcessError as e:
-        return e.stderr
-    
-    if result.returncode != 0:
-        return result.stderr
-    
-    runCommand = f"{outputFile}"
-    try:
-        output = subprocess.check_output([runCommand], stderr=subprocess.STDOUT, text=True)
-        return output
-    
-    except subprocess.CalledProcessError as e:
-        return e.stderr
+    result = cpp_compiler.execute(filePath)
+    return result
     
 def runPy(filePath):
     result = python_compile.execute(filePath)
