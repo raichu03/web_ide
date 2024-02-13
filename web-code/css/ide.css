@@ -42,42 +42,59 @@ body{
 }
 
 .question-title{
-    width: calc(100% - 20px);
-    height: calc(10% - 20px);
+    width: calc(100% - 40px);
+    height: calc(15% - 40px);
     position: relative;
     border-radius: 10px;
-    padding: 10px;
+    padding: 20px;
     overflow: auto;
     margin-top: 0px;
     text-align: left;
-    font-size: 30px;
+    font-size: 40px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     color: white;
     font-weight: bold;
 }
 
 .question-discription{
-    width: calc(100% - 20px);
-    height: calc(50% - 20px);
+    width: calc(100% - 40px);
+    height: calc(45% - 40px);
     position: relative;
     border-radius: 10px;
-    padding: 10px;
+    padding: 20px;
     overflow: auto;
     margin-top: 0px;
     text-align: left;
-    font-size: 20px;
+    font-size: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     color: white;
 }
 
-.example{
-    width: calc(100% - 20px);
-    height: calc(20% - 20px);
+.example-1{
+    width: calc(100% - 40px);
+    height: calc(20% - 40px);
     position: relative;
     border-radius: 10px;
-    padding: 10px;
+    padding: 20px;
     overflow: auto;
     margin-top: 0px;
     text-align: left;
-    font-size: 20px;
+    font-size: 25px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: white;
+}
+
+.example-2{
+    width: calc(100% - 40px);
+    height: calc(20% - 40px);
+    position: relative;
+    border-radius: 10px;
+    padding: 20px;
+    overflow: auto;
+    margin-top: 0px;
+    text-align: left;
+    font-size: 25px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     color: white;
 }
 
@@ -106,7 +123,7 @@ body{
 .run-btn{
     width: 70px;
     height: 30px;
-    background-color: #686363;
+    background-color: #a5a3a3;
     border-radius: 5px;
     text-align: center;
     border: none;
@@ -117,6 +134,25 @@ body{
 }
 
 .run-btn:hover{
+    background-color: #1b1a1a;
+    color: white;
+    cursor: pointer;
+}
+
+#difficulty{
+    width: 113px;
+    height: 30px;
+    background-color: #a5a3a3;
+    border: none;
+    box-shadow: none;
+    border-radius: 5px;
+    top: 30px;
+    left: 5%;
+    position: absolute;
+
+}
+
+#difficulty:hover{
     background-color: #1b1a1a;
     color: white;
     cursor: pointer;
@@ -133,7 +169,7 @@ body{
     width: calc(100% - 20px);
     height: calc(100% - 20px);
     position: absolute;
-    font-size: 15px;
+    font-size: 25px;
     color: white;
     border-radius: 10px;
     overflow: auto;
