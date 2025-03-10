@@ -63,6 +63,7 @@ header .run button{
     border-radius: 3px;
     border: none;
     font-size: 20px;
+    font-weight: bold;
 }
 
 header .run button:hover {

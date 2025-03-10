@@ -20,8 +20,11 @@ require(['vs/editor/editor.main'], function () {
     });
 });
 
-
 function changeLanguage() {
     const language = document.getElementById('languages').value;
     monaco.editor.setModelLanguage(editor.getModel(), language);
+}
+
+function runCode() {
+    const code = editor.getValue();
 }
