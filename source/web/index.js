@@ -4,10 +4,24 @@ require.config({
     } 
 });
 
+var editor;
+
 require(['vs/editor/editor.main'], function () {
-    monaco.editor.create(document.getElementById('editor'), {
-        // value: `function hello() {\n console.log('Hello world!')\n}`,
+    editor = monaco.editor.create(document.getElementById('editor'), {
         language: 'javascript',
-        theme: 'vs-dark'
+        theme: 'vs-dark',
+        fontSize: 22,
+        minimap: {
+            enabled: true
+        },
+        lineNumbers: 'on',
+        wordWrap: 'on',
+        automaticLayout: true,
     });
 });
+
+
+function changeLanguage() {
+    const language = document.getElementById('languages').value;
+    monaco.editor.setModelLanguage(editor.getModel(), language);
+}

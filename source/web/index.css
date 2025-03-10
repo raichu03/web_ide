@@ -13,16 +13,64 @@
 
 body {
     font-family: 'Offside', sans-serif;
+    color: #fff;
+    background: #212529;
 }
 
 header {
-    background: pink;
     width: 100vw;
     height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    background: #415a77;
+}
+
+header .language {
+    width: auto;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+header .language select {
+    background: white;
+    border: none;
+    width: 150px;
+    height: 30px;
+    border-radius: 3px;
+    font-size: 18px;
+    align-items: center;
+    outline: none;
+}
+
+header .language select:focus {
+    outline: none;
+}
+
+header .run button{
+    height: 40px;
+    width: 80px;
+    border-radius: 3px;
+    border: none;
+    font-size: 20px;
+}
+
+header .run button:hover {
+    transform: scale(1.08);
+    transition: 0.2s;   
 }
 
 main {
-    background: lightblue;
     width: 100vw;
     height: calc(100vh - 70px);
     display: flex;
@@ -31,4 +79,5 @@ main {
 main .editor {
     width: 100%;
     height: 100%;
+    padding-top: 15px;
 }
