@@ -27,4 +27,18 @@ function changeLanguage() {
 
 function runCode() {
     const code = editor.getValue();
+    fetch('/execute',{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({code})
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
 }
