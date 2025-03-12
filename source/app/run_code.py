@@ -1,6 +1,7 @@
 import os
-from datetime import datetime
 import uuid
+
+import run_python
 
 def save_file(code: str, extection: str):
     """
@@ -25,6 +26,9 @@ def execute_code(code: str, extention: str):
     """
     file_path = save_file(code, extention)
     
+    if extention == "py":
+        stdout, stderr, return_code = run_python.execute(file_path)
+        return stdout, stderr, return_code
 
         
     
