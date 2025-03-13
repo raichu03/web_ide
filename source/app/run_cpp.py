@@ -7,11 +7,11 @@ def execute(file_path: str, timeout: int = 10):
     Executes the python code and returns the output
     """
     
-    executable_path = file_path.replace('.c', '')
+    executable_path = file_path.replace('.cpp', '')
     try:
         # Run the C code using subprocess
         compile_result = subprocess.run(
-            ['gcc', file_path, '-o', executable_path],
+            ['g++', '-o', executable_path, file_path],
             text=True,
             capture_output=True,
             timeout=timeout,
@@ -53,3 +53,4 @@ def execute(file_path: str, timeout: int = 10):
     os.remove(executable_path)
     os.remove(file_path)
     return stdout, stderr, return_code
+    
