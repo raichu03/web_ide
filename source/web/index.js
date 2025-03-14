@@ -5,10 +5,11 @@ require.config({
 });
 
 var editor;
+var language = 'python';
 
 require(['vs/editor/editor.main'], function () {
     editor = monaco.editor.create(document.getElementById('editor'), {
-        language: 'javascript',
+        language: language,
         theme: 'vs-dark',
         fontSize: 22,
         minimap: {
@@ -21,7 +22,7 @@ require(['vs/editor/editor.main'], function () {
 });
 
 function changeLanguage() {
-    const language = document.getElementById('languages').value;
+    language = document.getElementById('languages').value;
     monaco.editor.setModelLanguage(editor.getModel(), language);
 }
 
@@ -32,7 +33,7 @@ function runCode() {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({code})
+        body: JSON.stringify({code, language})
     })
     .then(response => response.json())
     .then(data => {

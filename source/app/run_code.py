@@ -1,7 +1,25 @@
 import os
 import uuid
 
-import run_python
+from . import run_python
+from . import run_c
+from . import run_cpp
+from . import run_js
+
+def convert_extention(extenction: str):
+    """
+    Converts the extention to the valid extention for the execution
+    """
+    if extenction == "python":
+        return "py"
+    elif extenction == "c":
+        return "c"
+    elif extenction == "cpp":
+        return "cpp"
+    elif extenction == "javascript":
+        return "js"
+    else:
+        return None
 
 def save_file(code: str, extection: str):
     """
@@ -24,11 +42,25 @@ def execute_code(code: str, extention: str):
     """
     Executes the code and returns the output
     """
+    extention = convert_extention(extention)
     file_path = save_file(code, extention)
     
     if extention == "py":
         stdout, stderr, return_code = run_python.execute(file_path)
         return stdout, stderr, return_code
+    
+    elif extention == "c":
+        stdout, stderr, return_code = run_c.execute(file_path)
+        return stdout, stderr, return_code
+    
+    elif extention == "cpp":
+        stdout, stderr, return_code = run_cpp.execute(file_path)
+        return stdout, stderr, return_code
+    
+    elif extention == "js":
+        stdout, stderr, return_code = run_js.execute(file_path)
+        return stdout, stderr, return_code
+    
 
         
     

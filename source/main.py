@@ -11,6 +11,7 @@ app.mount("/static", StaticFiles(directory="web"), name="static")
 
 class Code(BaseModel):
     code: str
+    language: str
     
     
 @app.get("/", response_class=HTMLResponse)
@@ -20,8 +21,7 @@ def root():
     
 @app.post("/execute")
 def execute(message: Code):
-    print("success")
-    result = run_code.save_file(message.code, "py")
+    stdout, stderr, return_code = run_code.execute_code(message.code, message.language)
     return {"message": "Hello, World!"}
 
     
