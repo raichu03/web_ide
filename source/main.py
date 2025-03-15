@@ -22,6 +22,11 @@ def root():
 @app.post("/execute")
 def execute(message: Code):
     stdout, stderr, return_code = run_code.execute_code(message.code, message.language)
-    return {"message": "Hello, World!"}
+    response = {
+        "stdout": stdout,
+        "stderr": stderr,
+        "return_code": return_code
+    }
+    return response
 
     

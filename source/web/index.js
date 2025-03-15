@@ -26,6 +26,10 @@ function changeLanguage() {
     monaco.editor.setModelLanguage(editor.getModel(), language);
 }
 
+function setOutput(output){
+    document.getElementById('output-box').textContent = output;
+}
+
 function runCode() {
     const code = editor.getValue();
     fetch('/execute',{
@@ -37,7 +41,11 @@ function runCode() {
     })
     .then(response => response.json())
     .then(data => {
-        console.log(data);
+        if(data['return_code'] === 0){
+            setOutput(data['stdout']);
+        } else {
+            setOutput(data['stderr']);
+        }
     })
     .catch((error) => {
         console.error('Error:', error);
