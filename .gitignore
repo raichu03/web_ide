@@ -3,3 +3,4 @@ source/__pycache__/
 .gitignore
 source/app/__pycache__/
 *temp*
+.dockerignore

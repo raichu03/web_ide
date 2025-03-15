@@ -44,21 +44,22 @@ def execute_code(code: str, extention: str):
     """
     extention = convert_extention(extention)
     file_path = save_file(code, extention)
+    timeout = 5
     
     if extention == "py":
-        stdout, stderr, return_code = run_python.execute(file_path)
+        stdout, stderr, return_code = run_python.execute(file_path, timeout)
         return stdout, stderr, return_code
     
     elif extention == "c":
-        stdout, stderr, return_code = run_c.execute(file_path)
+        stdout, stderr, return_code = run_c.execute(file_path, timeout)
         return stdout, stderr, return_code
     
     elif extention == "cpp":
-        stdout, stderr, return_code = run_cpp.execute(file_path)
+        stdout, stderr, return_code = run_cpp.execute(file_path, timeout)
         return stdout, stderr, return_code
     
     elif extention == "js":
-        stdout, stderr, return_code = run_js.execute(file_path)
+        stdout, stderr, return_code = run_js.execute(file_path, timeout)
         return stdout, stderr, return_code
     
 

@@ -1,24 +1,41 @@
-# IDE for Website
-This fullstack website can be deployed to run on a local machine or on a server. The website was built to fulfill the basic immediate need. It was made for sole purpose of holding coding competation among students of a college during annual tech event. 
+# Web based code editor
+This is a web based code editor that allows you to write code in various languages like `python`, `javascript`, `c` and `c++`. It automatically runs the code in local machine without the need for downloading any application. It also provides a console to see the output of the code.
 
-The website is built using the following technologies:
-- [FastAPI](https://fastapi.tiangolo.com/)
-- [Jquery](https://jquery.com/)
-- [Python](https://www.python.org/)
+The editor was built using `FastAPI` and `HTML`, `CSS` and `Javascript` for the frontend. The code is run in a `docker` container and the output is displayed in the console.
 
-Due to limited time, we could not implement the database system, and automated answer checking system but in future we will try to implement these features. The website can be easily scaled and expanded to add more features. Feel free to use the code for your own purpose or to contribute to the project. Currently it uses python dictionary to store and fetch the questions.
+## Installation
+Clone the repository
+```bash
+git colne https://github.com/raichu03/web_ide.git
+```
 
-This code was made to run in linux system and runs without problem, but it can be easily modified to run on windows system. You just have to change the path of the files in the code. To increase the number of languages supported, you just have to add the language in the code and add the compiler for that language in the system. You would also need to add the path of the compiler in the code as we have done for the other languages.
+### Running locally
+1. Install the dependencies(from the project directory)
+```bash
+pip install -r requirements.txt
+```
+2. Install the node, gcc and g++ compilers
+``` bash
+apt-get update && apt-get install -y nodejs npm
+apt-get update && apt-get install -y build-essential
+```
+3. Run the application (from the `source` directory)
+```bash
+uvicorn main:app
+```
+This will run the application locally. You can access it by clicking on the link provided in the terminal.
 
-It uses uvicorn server to host the api and all the requirements are mentioned in the requirements.txt file. You can install all the requirements using the following command:
+### Running using docker
+1. From the project directory, build the docker image
+```bash
+docker build -t app_name .
+```
+After the image is built, you can run the following command to start the application.
 
-``` pip install -r requirements.txt ```
+2. Run the docker container
+```bash
+ docker run -d -p 8000:8000 app_name
+```
+Now you can access the application by going to `http://localhost:8000` in your browser.
 
-To run the server in localhost, you can use the following command:
-
-``` uvicorn main:app --reload ```
-
-or you can use  the following command to run in different address:
-
-``` uvicorn main:app --host [ip address] --port [port number] -reload```
 
